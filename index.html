@@ -123,13 +123,18 @@
         age--;
     }
 
-    const currentTime = new Date().toLocaleString("de-CH", {
-        timeZone: "Europe/Zurich",
-        hour: "2-digit",
-        minute: "2-digit"
-   });
+    function reloadTime() {
+        const newTime = new Date().toLocaleString("de-CH", {
+            timeZone: "Europe/Zurich",
+            hour: "2-digit",
+            minute: "2-digit"
+        });
+        timeElement.textContent = `🕒 ${newTime}`;
 
+        setTimeout(reloadTime, 1000);
+   }
+
+   reloadTime();
     ageElement.textContent = `${age}yo`;
-    timeElement.textContent = `🕒 ${currentTime}`;
 </script>
 </html>
