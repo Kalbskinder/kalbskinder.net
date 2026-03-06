@@ -14,6 +14,10 @@
         --bg-color: rgb(16, 16, 16);
         --modrinth-color: rgb(49, 173, 96);
         --youtube-color: rgb(239, 55, 55);
+
+        --tag-bg: rgba(72, 179, 70, 0.477);
+        --tag-color: rgba(195, 255, 178, 0.726);
+        --tag-border: rgba(72, 179, 70, 0.677);
     }
 
     ::-webkit-scrollbar {
@@ -119,6 +123,129 @@
         height: 95vh;
     }
 
+    .card-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        margin-top: 32px;
+    }
+
+    .card {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        background-color: rgb(32, 32, 32);
+        border-radius: 8px;
+        padding: 16px;
+        width: 80%;
+        max-width: 800px;
+        border: 1px dashed transparent;
+        transition: border 0.3s ease-in-out, transform 0.2s ease-in-out;
+    }
+
+    .card:hover {
+        border: 1px dashed white;
+        transform: translateY(-3px);
+    }
+
+    .card-image {
+        width: 128px;
+        height: 128px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-right: 16px;
+    }
+
+    .card-description {
+        color: rgb(181, 181, 181);
+        font-family: 'Funnel Sans', Arial, Helvetica, sans-serif;
+    }
+
+    .card-top, .card-tags {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .card-left {
+        display: flex;
+        flex-direction: row;
+        max-width: 80%;
+        align-items: flex-start;
+    }
+
+    .card-right {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .card-button {
+        text-decoration: none;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        line-height: inherit;
+        flex-direction: row;
+        background-color: rgb(48, 48, 48);
+        color: white;
+        border: none;
+        border-radius: 7px;
+        padding: 12px 12px;
+        font-size: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out
+    }
+
+    .card-button:hover {
+        background-color: rgb(64, 64, 64);
+    }
+
+    .card-left h2 {
+        margin: 0;
+        margin-top: 3px;
+        font-size: 1.5rem;
+    }
+
+    .card-tags {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        margin-top: 8px;
+        gap: 10px;
+        margin-left: 6px;
+    }
+
+    .tag-yellow {
+        --tag-bg: rgba(214, 214, 32, 0.566);
+        --tag-color: rgba(255, 255, 195, 0.726);
+        --tag-border: rgba(255, 255, 0, 0.677);
+    }
+
+    .tag-blue {
+        --tag-bg: rgba(69, 148, 213, 0.566);
+        --tag-color: rgba(173, 216, 230, 0.726);
+        --tag-border: rgba(69, 148, 213, 0.677);
+    }
+
+    .card-tag {
+        background-color: var(--tag-bg);
+        color: var(--tag-color);
+        font-size: 11px;
+        padding: 0.3em 0.85em;
+        border-radius: 19px;
+        border: 1.6px solid var(--tag-border);
+    }
+
     @keyframes float {
         0%, 100% {
             transform: translateY(0) rotate(90deg);
@@ -177,6 +304,36 @@
     </div>
     <div class="bottom" id="bottom">
         <h1>Projects</h1>
+        <div class="card-container">
+
+            <div class="card">
+                <div class="card-top">
+                    <div class="card-left">
+                        <img class="card-image" src="https://cdn.modrinth.com/data/cached_images/38c1a98c1fe7c2d0b05bc645b9a7e1a4cb04d0d1.png" alt="">
+                        <div class="card-content">
+                            <h2 class="card-header">Title</h2>
+                            <span class="card-description">Description</span>
+                        </div>
+                    </div>
+                    <div class="card-right">
+                        <a class="card-button top-button" href="#projects" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="" viewBox="0 0 16 16">
+                                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                                <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                            </svg>
+                            Download
+                        </a>
+                        <a class="card-button bottom-button" href="#projects" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="" viewBox="0 0 16 16">
+                                <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0m6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0"/>
+                            </svg>
+                            View Source
+                        </a>
+                    </div>
+                </div>
+                <div class="card-tags"></div>
+            </div>
+        </div>
     </div>
 </body>
 <script>
@@ -184,6 +341,58 @@
     const ageElement = document.getElementById("age");
     const bottomPage = document.getElementById("bottom");
     const topPage = document.getElementById("top");
+    const cardContainer = document.querySelector(".card-container");
+
+    const projects = [
+        {
+            title: "PluginWizard",
+            description: "A tool that lets anybody create a Minecraft plugin without coding experience. It provides a visual interface to design plugins and generates the necessary code and files.",
+            image: "/images/wizard.png",
+            downloadLink: "#projects",
+            sourceLink: "#projects",
+            overrideButtons: true,
+            topButton: {
+                openInNewTab: false,
+                text: "COMING SOON",
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                            <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0"/>
+                        </svg>`
+            },
+            bottomButton: { text: "", icon: "" },
+            tags: [
+                { text: "TypeScript", color: "green" },
+                { text: "Java", color: "green" },
+                { text: "Minecraft", color: "blue" }
+            ]
+        },
+        {
+            title: "Patenit-Zero",
+            description: "A minecraft plugin which adds the famous minigame Infection by Hypixel",
+            image: "https://cdn.modrinth.com/data/5RQMBtQG/751ef8394583803f190a4e8d8cf9e9eb9e344406.png",
+            downloadLink: "https://modrinth.com/plugin/patient-zero",
+            sourceLink: "https://github.com/Kalbskinder/Patient-Zero",
+            overrideButtons: false,
+            tags: [
+                { text: "Java", color: "green" },
+                { text: "Minecraft", color: "blue" },
+                { text: "PaperMC", color: "blue" }
+            ]
+        },
+        {
+            title: "Lobby Parkour",
+            description: "A simple and customizable plugin that adds Parkour to your Minecraft Server",
+            image: "https://cdn.modrinth.com/data/p0vLoLma/776a52b513a2ab1d46fbfd8cdc5e53784f89e044.webp",
+            downloadLink: "https://modrinth.com/plugin/lobby-parkour",
+            sourceLink: "https://github.com/Crumb-Network/Lobby-Parkour",
+            overrideButtons: false,
+            tags: [
+                { text: "Java", color: "green" },
+                { text: "Minecraft", color: "blue" },
+                { text: "PaperMC", color: "blue" }
+            ]
+        }
+    ]
 
     // top
     const birthDate = new Date(2008, 6, 26);
@@ -209,12 +418,59 @@
     ageElement.textContent = `${age}yo`;
 
     // bottom
+    projects.forEach(project => {
+        const card = document.querySelector(".card").cloneNode(true);
+        card.style.display = "flex";
+
+        card.querySelector(".card-header").textContent = project.title;
+        card.querySelector(".card-description").textContent = project.description;
+        card.querySelector(".card-image").src = project.image;
+        card.querySelector(".top-button").href = project.downloadLink;
+        card.querySelector(".bottom-button").href = project.sourceLink;
+
+        // display tags
+        project.tags.forEach(tag => {
+            const tagElement = document.createElement("span");
+            tagElement.classList.add("card-tag");
+            tagElement.classList.add(`tag-${tag.color}`);
+            tagElement.textContent = tag.text;
+            card.querySelector(".card-tags").appendChild(tagElement);
+        });
+
+        // override buttons if needed
+        if (project.overrideButtons) {
+            const topButton = card.querySelector(".top-button");
+            const bottomButton = card.querySelector(".bottom-button");
+            bottomButton.innerHTML = project.bottomButton.icon + project.bottomButton.text;
+            topButton.innerHTML = project.topButton.icon + project.topButton.text;
+
+            if (project.bottomButton.openInNewTab) {
+                bottomButton.setAttribute("target", "_blank");
+            } else {
+                bottomButton.setAttribute("target", "_self");
+            }
+
+            if (project.topButton.openInNewTab) {
+                topButton.setAttribute("target", "_blank");
+            } else {
+                topButton.setAttribute("target", "_self");
+            }
+
+            if (!project.topButton.icon || !project.topButton.text) {
+                topButton.style.display = "none";
+            }
+
+            if (!project.bottomButton.icon || !project.bottomButton.text) {
+                bottomButton.style.display = "none";
+            }
+        }
+
+        cardContainer.appendChild(card);
+    })
 
 
     // scroll logic
     window.addEventListener("wheel", (event) => {
-        console.log("scrolling", event.deltaY);
-
         if (event.deltaY > 0) {
             bottomPage.scrollIntoView({ behavior: "smooth" });
         } else {
